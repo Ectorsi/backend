@@ -1,5 +1,10 @@
 module.exports = app => {
-    const { save } = app.api.user;
+    const { save, get, getById } = app.api.user;
     app.route('/users')
         .post(save)
+        .get(get)
+        
+    app.route('/users/:id')
+        .get(getById)
+        .put(save)
 }
